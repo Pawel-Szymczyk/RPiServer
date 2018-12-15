@@ -4,24 +4,21 @@ const Hapi = require('hapi');
 const Boom = require('boom');
 var rp = require('request-promise');
 
+// get config file...
+const config = require('./config/config.json');
+
 const server = Hapi.server({
-    port: 3000,
-    host: '192.168.0.15'
+    port: config.server.port,
+    host: config.server.host
 });
 
 const mqttOpts = {
-    brokerUrl: 'mqtt://192.168.0.15:8080',
+    brokerUrl: config.mqtt.url,
     opts: {
-        username: 'MosquittoAdmin',
-        password: '9Mosq1TT0pSw'
+        username: config.mqtt.username,
+        password: config.mqtt.password
     }
 };
-
-
-
-
-
-
 
 const init = async () => {
 
@@ -39,6 +36,7 @@ const init = async () => {
                 plugin: require('hapi-mqtt'),
                 options: mqttOpts
             },
+
             // routes here...
             require('./server/routes/MqttRoutes'),
             require('./server/routes/HerokuRoutes'),
