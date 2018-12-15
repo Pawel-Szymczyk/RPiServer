@@ -5,15 +5,15 @@ const Boom = require('boom');
 var rp = require('request-promise');
 
 const server = Hapi.server({
-    port: 3000,
-    host: '192.168.0.15'
+    port: ****,
+    host: '**********'
 });
 
 const mqttOpts = {
-    brokerUrl: 'mqtt://192.168.0.15:8080',
+    brokerUrl: 'mqtt://***************',
     opts: {
-        username: 'MosquittoAdmin',
-        password: '9Mosq1TT0pSw'
+        username: '********************',
+        password: '********************'
     }
 };
 
