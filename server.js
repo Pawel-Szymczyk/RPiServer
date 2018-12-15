@@ -53,7 +53,7 @@ const init = async () => {
                 options: mqttOpts
             },
             // routes here...
-            require('./routes/MqttRoutes')
+            require('./server/routes/MqttRoutes')
         ]
     );
 
